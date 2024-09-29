@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            color: white;
+        }
+        .container{
+            border: 2px solid black;
+            background-color: black;
+            height: 600px;
+            width: 350px;
+            border-radius: 20px;
+        }
+        .top{
+            height: 100px;
+            margin: 20px 10px 30px 10px ;
+        }
+        .bottom{
+            height: 400px;
+            margin: 40px 10px 10px 10px ;
+    
+        }
+        span,button{
+            font-size: 26px;
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 30px;
+        }
+        .op{
+            border-radius: 50px;
+            padding:10px 20px 10px 20px;
+            margin-right: 10px;
+            margin-left: 10px;
+        }
+        .op2{
+            border-radius: 50px;
+            padding:10px 20px 10px 20px;
+            margin-right: 10px;
+            margin-left: 10px;
+            color:rgb(36, 229, 36) ;
+        }
+        .set,.set1,.set2,.set3,.set4{
+            padding-top: 20px;
+        }
+        .set{
+            color: rgb(36, 229, 36);
+        }
+        button:last-child:not(#nine,#dot){
+            color:rgb(36, 229, 36);
+        }
+        button{
+            color: white;
+            background-color: black;
+        }
+        .op1{
+            position: fixed;
+            border: 1px solid  rgb(36, 229, 36);
+            background-color:rgb(36, 229, 36) ;
+            padding: 41px 20px 40px;
+            border-radius: 10px;
+            margin-left: 15px;
+            color: white;
+        }
+        #result{
+            font-size: 30px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        p{
+            text-align: right;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="top">
+           
+            <span id="val"></span>
+            <p id="result"></p>
+        </div>
+        <div class="bottom">
+            <div class="set">
+                <hr>
+                <br>
+                <button class="op2" id="cancel" onclick="cancell()">C</button>
+                <button class="op2" id="divide" onclick="div()">/</button>
+                <button class="op2" id="multiply" onclick="mul()">X</button>
+                <button class="op2" id="back" onclick="bac()">!</button>
+            </div>
+            <div class="set1">
+                <button class="op" id="one" onclick="one1()">1</button>
+                <button class="op" id="two" onclick="two2()">2</button>
+                <button class="op" id="three" onclick="three3()">3</button>
+                <button class="op" id="subtract" onclick="sub()">-</button>
+            </div>
+            <div class="set2">
+                <button class="op" id="four" onclick="four4()">4</button>
+                <button class="op" id="five" onclick="five5()">5</button>
+                <button class="op" id="six" onclick="six6()">6</button>
+                <button class="op" id="addition" onclick="addd()">+</button>
+            </div>
+            <div class="set3">
+                <button class="op" id="seven" onclick="seven7()">7</button>
+                <button class="op" id="eight" onclick="eight8()">8</button>
+                <button class="op" id="nine" onclick="nine9()">9</button>
+                <button class="op1" id="equal" onclick="equall()" style="color: white;">=</button>
+            </div>
+            <div class="set4">
+                <button class="op" id="modulo" onclick="mod()">%</button>
+                <button class="op" id="zero" onclick="zero0()">0</button>
+                <button class="op" id="dot" onclick="dott()">.</button>
+                
+            </div>
+        </div>
+    </div>
+   <script>
+        const one=document.getElementById('one');
+        const two=document.getElementById('two');
+        const three=document.getElementById('three');
+        const four=document.getElementById('four');
+        const five=document.getElementById('five');
+        const six=document.getElementById('six');
+        const seven=document.getElementById('seven');
+        const eight=document.getElementById('eight');
+        const nine=document.getElementById('nine');
+        const zero=document.getElementById('zero');
+        const cancel=document.getElementById('cancel');
+        const back=document.getElementById('back');
+        const equal=document.getElementById('equal');
+        const dot=document.getElementById('dot');
+        const add=document.getElementById('addition');
+        const subtract=document.getElementById('subtract');
+        const multiply=document.getElementById('multiply');
+        const divide=document.getElementById('divide');
+        const  modulo=document.getElementById('modulo');
+        const val=document.getElementById('val');
+        const  result=document.getElementById('result');
+        function one1()
+        {
+            val.textContent+=1;
+        }
+        function two2()
+        {
+            val.textContent+=2;
+        }
+        function bac(){
+            val.textContent=val.textContent.slice(0,-1);
+        }
+        function three3()
+        {
+            val.textContent+=3;
+        }
+        function four4()
+        {
+            val.textContent+=4;
+        }
+        function five5()
+        {
+            val.textContent+=5;
+        }
+        function six6()
+        {
+            val.textContent+=6;
+        }
+        function seven7()
+        {
+            val.textContent+=7;
+        }
+        function eight8()
+        {
+            val.textContent+=8;
+        }
+        function nine9()
+        {
+            val.textContent+=9;
+        }
+        function zero0()
+        {
+            val.textContent+=0;
+        }
+        function addd()
+        {
+            val.textContent+="+";
+        }
+        function sub()
+        {
+            val.textContent+="-";
+        }
+        function mul()
+        {
+            val.textContent+="*";
+        }
+        function div()
+        {
+            val.textContent+="/";
+        }
+        function equall(){
+            result.textContent=eval(val.textContent);
+        }
+        function mod()
+        {
+            val.textContent+="%";
+        }
+        function dott()
+        {
+            val.textContent+=".";
+        }
+        function cancell()
+        {
+            val.textContent=val.textContent.slice(120);
+            result.textContent=result.textContent.slice(120);
+        }
+   </script>
+</body>
+</html>
